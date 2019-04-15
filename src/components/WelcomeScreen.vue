@@ -10,7 +10,7 @@
             If you are going to use a passage of Lorem Ipsum, you need to be sure there 
             isn't anything embarrassing hidden in the middle of text. 
         </p>  
-        <button class="main-screen__button">Start</button>
+        <button class="main-screen__button" v-on:click="onOpenQuiz">Start</button>
         <p class="main-screen__quiz-note">
             It is a long established fact that a reader will be distracted by the readable 
             content of a page when looking at its layout. 
@@ -21,7 +21,13 @@
 
 <script>
 export default {
-    name: 'WelcomeScreen'
+    name: 'WelcomeScreen',
+    methods: {
+        onOpenQuiz: function() {
+            this.$emit('onOpenQuiz')
+        }
+    }
+
 }
 </script>
 

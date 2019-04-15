@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <WelcomeScreen />
-    <hr/>
-    <QuestionScreen />
+    <WelcomeScreen v-on:onOpenQuiz="startQuiz" v-if="!openQuiz" />
+    <hr>
+    <QuestionScreen v-if="openQuiz" />
   </div>
 </template>
 
@@ -12,6 +12,19 @@ import QuestionScreen from "./components/QuestionScreen";
 
 export default {
   name: "app",
+  data() {
+    return {
+      openQuiz: false
+    };
+  },
+  methods: {
+    startQuiz: function() {
+      this.openQuiz = true;
+    },
+    endQuiz: function() {
+      this.openQuiz = false;
+    }
+  },
   components: {
     WelcomeScreen,
     QuestionScreen
