@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <WelcomeScreen v-on:onOpenQuiz="startQuiz" v-if="openQuiz==='welcom'"/>
-    <QuestionScreen v-else-if="openQuiz==='process'"/>
-    <FinishQuizPage v-else-if="openQuiz==='finish'"/>
+    <QuestionScreen v-else-if="openQuiz==='process'" v-on:onFinishQuiz="endQuiz"/>
+    <FinishQuizPage v-else-if="openQuiz==='finish'" v-on:onOpenQuiz="startQuiz"/>
   </div>
 </template>
 

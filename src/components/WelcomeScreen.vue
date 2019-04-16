@@ -27,7 +27,6 @@ export default {
             this.$emit('onOpenQuiz')
         }
     }
-
 }
 </script>
 

@@ -8,15 +8,22 @@
       <h1
         class="finish-quiz-screen__header"
       >Finish Screen. All the Lorem Ipsum generators tend to repeat predefined chunks as necessary?</h1>
-      <button class="finish-quiz-screen__button">Start over</button>
-      <button class="finish-quiz-screen__button">Show me</button>
+      <button class="finish-quiz-screen__button" v-on:click="onOpenQuiz">Start over</button>
+      <button class="finish-quiz-screen__button">
+        <a href="https://summit.nacdonline.org/agenda">Show me</a>
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "FinishQuizPage"
+  name: "FinishQuizPage",
+  methods: {
+    onOpenQuiz: function() {
+      this.$emit("onOpenQuiz");
+    }
+  }
 };
 </script>
 
@@ -25,7 +32,6 @@ export default {
   background-color: black;
   color: white;
   padding: 50px 70px 20px;
-  /*  */
   display: flex;
 }
 

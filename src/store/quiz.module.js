@@ -1,4 +1,3 @@
-import Vue from "vue";
 import {
   FETCH_QUIZ_QUESTIONS,
   QUIZ_ADD_ANSWER,
@@ -42,7 +41,7 @@ const state = {
 };
 
 const getters = {
-  getQuizQuestions(state) {
+  quizQuestions(state) {
     return state.quizQuestions;
   },
   getQuizAnswers(state) {
@@ -51,7 +50,7 @@ const getters = {
 };
 
 const actions = {
-  [FETCH_QUIZ_QUESTIONS]({ commit }, params) {
+  [FETCH_QUIZ_QUESTIONS]({ commit }) {
     commit();
   },
   [QUIZ_ADD_ANSWER]({ commit }, payload) {
