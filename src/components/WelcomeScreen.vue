@@ -34,12 +34,12 @@ export default {
 <style scoped>
     .main-screen {
         background-color: black;
+        color: white;
         padding: 50px 70px 20px;
     }
     
     .main-screen__header,
     .main-screen__quiz-description {
-        color: white;
         text-transform: uppercase;
     }
 

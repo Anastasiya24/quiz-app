@@ -1,0 +1,46 @@
+<template>
+  <div class="finish-quiz-screen">
+    <div class="finish-quiz-screen__quiz-switch">
+      <p>&lt;</p>
+      <p class="finish-quiz-screen__quiz-switch-text">Back</p>
+    </div>
+    <div>
+      <h1
+        class="finish-quiz-screen__header"
+      >Finish Screen. All the Lorem Ipsum generators tend to repeat predefined chunks as necessary?</h1>
+      <button class="finish-quiz-screen__button">Start over</button>
+      <button class="finish-quiz-screen__button">Show me</button>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "FinishQuizPage"
+};
+</script>
+
+<style scoped>
+.finish-quiz-screen {
+  background-color: black;
+  color: white;
+  padding: 50px 70px 20px;
+  /*  */
+  display: flex;
+}
+
+.finish-quiz-screen__header {
+  text-transform: uppercase;
+}
+
+.finish-quiz-screen__quiz-switch {
+  width: 100px;
+  margin: auto;
+}
+
+.finish-quiz-screen__quiz-switch-text {
+  font-size: 13px;
+  font-style: italic;
+}
+</style>
+

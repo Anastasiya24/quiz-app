@@ -1,33 +1,35 @@
 <template>
   <div id="app">
-    <WelcomeScreen v-on:onOpenQuiz="startQuiz" v-if="!openQuiz" />
-    <hr>
-    <QuestionScreen v-if="openQuiz" />
+    <WelcomeScreen v-on:onOpenQuiz="startQuiz" v-if="openQuiz==='welcom'"/>
+    <QuestionScreen v-else-if="openQuiz==='process'"/>
+    <FinishQuizPage v-else-if="openQuiz==='finish'"/>
   </div>
 </template>
 
 <script>
 import WelcomeScreen from "./components/WelcomeScreen";
 import QuestionScreen from "./components/QuestionScreen";
+import FinishQuizPage from "./components/FinishQuizPage";
 
 export default {
   name: "app",
   data() {
     return {
-      openQuiz: false
+      openQuiz: "welcom"
     };
   },
   methods: {
     startQuiz: function() {
-      this.openQuiz = true;
+      this.openQuiz = "process";
     },
     endQuiz: function() {
-      this.openQuiz = false;
+      this.openQuiz = "finish";
     }
   },
   components: {
     WelcomeScreen,
-    QuestionScreen
+    QuestionScreen,
+    FinishQuizPage
   }
 };
 </script>
