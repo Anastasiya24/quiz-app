@@ -33,7 +33,11 @@
       </div>
     </div>
     <div class="question-slade__answers">
-      <button v-for="answer of question.answers" :key="answer.answersId">{{answer.text}}</button>
+      <button
+        v-for="answer of question.answers"
+        :key="answer.answerId"
+        v-on:click="onClickToAnswer(answer)"
+      >{{answer.text}}</button>
     </div>
     <p
       class="question-slade__quiz-counter"
@@ -64,6 +68,9 @@ export default {
     },
     onNextQuestion: function() {
       this.$emit("onNextQuestion");
+    },
+    onClickToAnswer: function(data) {
+      this.$emit("onClickToAnswer", data);
     }
   }
 };

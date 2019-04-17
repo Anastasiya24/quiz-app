@@ -1,6 +1,6 @@
 <template>
   <div class="finish-quiz-screen">
-    <div class="finish-quiz-screen__quiz-switch">
+    <div class="finish-quiz-screen__quiz-switch" v-on:click="onRepeatToQuiz">
       <p>&lt;</p>
       <p class="finish-quiz-screen__quiz-switch-text">Back</p>
     </div>
@@ -22,6 +22,9 @@ export default {
   methods: {
     onOpenQuiz: function() {
       this.$emit("onOpenQuiz");
+    },
+    onRepeatToQuiz: function() {
+      this.$emit("onRepeatToQuiz");
     }
   }
 };
@@ -42,6 +45,7 @@ export default {
 .finish-quiz-screen__quiz-switch {
   width: 100px;
   margin: auto;
+  cursor: pointer;
 }
 
 .finish-quiz-screen__quiz-switch-text {

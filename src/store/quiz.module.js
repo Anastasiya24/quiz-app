@@ -11,9 +11,9 @@ const state = {
       text:
         "Lorem Ipsum has been the industry standard dummy text ever since the 1500s?",
       answers: [
-        { answersId: 1, text: "Yes" },
-        { answersId: 2, text: "No" },
-        { answersId: 3, text: "Maybe" }
+        { answerId: 1, text: "Yes" },
+        { answerId: 2, text: "No" },
+        { answerId: 3, text: "Maybe" }
       ]
     },
     {
@@ -21,21 +21,20 @@ const state = {
       text:
         "Contrary to popular belief, Lorem Ipsum is not simply random text?",
       answers: [
-        { answersId: 1, text: "A" },
-        { answersId: 2, text: "B" },
-        { answersId: 3, text: "Lorem" }
+        { answerId: 1, text: "A" },
+        { answerId: 2, text: "B" },
+        { answerId: 3, text: "Lorem" }
       ]
     },
     {
       questionId: 3,
-      text:
-        "All the Lorem Ipsum generators on the Internet tend to repeat?",
+      text: "All the Lorem Ipsum generators on the Internet tend to repeat?",
       answers: [
-        { answersId: 1, text: "first" },
-        { answersId: 2, text: "words" },
-        { answersId: 3, text: "therefore" }
+        { answerId: 1, text: "first" },
+        { answerId: 2, text: "words" },
+        { answerId: 3, text: "therefore" }
       ]
-    },
+    }
   ],
   quizAnswer: []
 };
@@ -60,7 +59,16 @@ const actions = {
 
 const mutations = {
   [QUIZ_NEW_ANSWER](state, data) {
-    state.quizAnswer = data;
+    const oldQuizAnswer = Array.from(state.quizAnswer);
+    
+    // let currentQuestion = oldQuizAnswer.find(
+    //   el => el.questionId === data.questionId
+    // );
+    // if (currentQuestion) {
+    //   oldQuizAnswer.filter(el => el.questionId === data.questionId);
+    // }
+    oldQuizAnswer.push(data);
+    state.quizAnswer = oldQuizAnswer;
   }
 };
 

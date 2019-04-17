@@ -1,8 +1,16 @@
 <template>
   <div id="app">
     <WelcomeScreen v-on:onOpenQuiz="startQuiz" v-if="openQuiz==='welcom'"/>
-    <QuestionScreen v-else-if="openQuiz==='process'" v-on:onFinishQuiz="endQuiz"/>
-    <FinishQuizPage v-else-if="openQuiz==='finish'" v-on:onOpenQuiz="startQuiz"/>
+    <QuestionScreen
+      v-else-if="openQuiz==='process'"
+      v-on:onFinishQuiz="endQuiz"
+      :repeatQuiz="repeatQuiz"
+    />
+    <FinishQuizPage
+      v-else-if="openQuiz==='finish'"
+      v-on:onOpenQuiz="startQuiz"
+      v-on:onRepeatToQuiz="repeatToQuiz"
+    />
   </div>
 </template>
 
@@ -15,7 +23,8 @@ export default {
   name: "app",
   data() {
     return {
-      openQuiz: "welcom"
+      openQuiz: "welcom",
+      repeatQuiz: false
     };
   },
   methods: {
@@ -24,6 +33,10 @@ export default {
     },
     endQuiz: function() {
       this.openQuiz = "finish";
+    },
+    repeatToQuiz: function() {
+      this.repeatQuiz = true;
+      this.openQuiz = "process";
     }
   },
   components: {
